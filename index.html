@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABEL - Sejarah Indonesia</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8B0000;
+            --secondary: #D4AF37;
+            --accent: #2E8B57;
+            --light: #F5F5DC;
+            --dark: #2F2F2F;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #A52A2A);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            margin-left: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .hero {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--primary);
+        }
+
+        .hero h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 2px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #555;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 1.5rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">📜</span>
+                <h1>TABEL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Zaman Prasejarah</a></li>
+                    <li><a href="#">Kerajaan Kuno</a></li>
+                    <li><a href="#">Kolonialisme</a></li>
+                    <li><a href="#">Revolusi & Kemerdekaan</a></li>
+                    <li><a href="#">Era Modern</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Selamat Datang di TABEL - Portal Sejarah Indonesia</h2>
+            <p>TABEL hadir sebagai sumber informasi komprehensif tentang sejarah Indonesia, dari masa prasejarah hingga era modern. Kami berkomitmen menyajikan fakta sejarah dengan akurat dan menarik, dilengkapi dengan berbagai sumber referensi untuk memperkaya pengetahuan Anda tentang perjalanan panjang bangsa Indonesia.</p>
+        </section>
+
+        <div class="content-grid">
+            <div class="card">
+                <div class="card-header">Zaman Prasejarah</div>
+                <div class="card-body">
+                    <h3>Manusia Purba & Kebudayaan Awal</h3>
+                    <p>Indonesia memiliki warisan prasejarah yang kaya dengan penemuan fosil manusia purba seperti Pithecanthropus erectus (Java Man) dan Homo floresiensis. Kebudayaan megalitik seperti menhir, dolmen, dan sarkofagus tersebar di berbagai wilayah Nusantara.</p>
+                    <p>Peninggalan prasejarah ini menunjukkan bahwa Nusantara telah dihuni oleh manusia dengan peradaban yang berkembang sejak ribuan tahun lalu.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Kerajaan Hindu-Buddha</div>
+                <div class="card-body">
+                    <h3>Kekayaan Peradaban Klasik</h3>
+                    <p>Sejarah Indonesia mencatat kemunculan kerajaan-kerajaan besar seperti Sriwijaya dan Majapahit yang menguasai wilayah luas di Nusantara. Kerajaan-kerajaan ini meninggalkan warisan arsitektur yang megah seperti Candi Borobudur dan Prambanan.</p>
+                    <p>Perdagangan rempah-rempah telah menjadikan Nusantara sebagai pusat perdagangan internasional yang menghubungkan dunia Timur dan Barat.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Era Kolonial</div>
+                <div class="card-body">
+                    <h3>Perjuangan Melawan Penjajahan</h3>
+                    <p>Kedatangan bangsa Eropa membawa perubahan besar dalam tatanan sosial, politik, dan ekonomi Nusantara. Periode kolonialisme yang berlangsung selama berabad-abad memicu berbagai perlawanan dari rakyat Indonesia.</p>
+                    <p>Perlawanan-perlawanan ini menjadi fondasi bagi terbentuknya kesadaran nasional dan semangat persatuan menuju kemerdekaan.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="highlight">
+            <h2>Mengapa Mempelajari Sejarah Indonesia?</h2>
+            <p>Sejarah bukan sekadar rangkaian peristiwa masa lalu, tetapi cermin yang memantulkan identitas bangsa. Dengan memahami sejarah, kita dapat:</p>
+            <ul>
+                <li>Menghargai perjuangan para pendahulu dalam membangun bangsa</li>
+                <li>Memahami akar budaya dan nilai-nilai luhur bangsa Indonesia</li>
+                <li>Mengambil pelajaran berharga untuk membangun masa depan yang lebih baik</li>
+                <li>Memperkuat rasa nasionalisme dan cinta tanah air</li>
+                <li>Menjaga warisan budaya dan sejarah dari pengaruh negatif globalisasi</li>
+            </ul>
+        </section>
+
+        <section class="timeline">
+            <h2>Garis Waktu Sejarah Indonesia</h2>
+            <div class="timeline-item">
+                <h3>Zaman Prasejarah (sebelum abad ke-4 M)</h3>
+                <p>Kehidupan masyarakat berburu dan meramu, perkembangan teknologi batu, serta munculnya kepercayaan animisme dan dinamisme.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Zaman Kerajaan Hindu-Buddha (abad ke-4 - 15 M)</h3>
+                <p>Munculnya kerajaan-kerajaan seperti Kutai, Tarumanagara, Sriwijaya, Majapahit, dengan pengaruh kebudayaan India.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Zaman Kerajaan Islam (abad ke-13 - 16 M)</h3>
+                <p>Penyebaran Islam melalui perdagangan dan munculnya kesultanan-kesultanan Islam seperti Samudera Pasai, Demak, dan Mataram.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Zaman Kolonial (abad ke-16 - 20 M)</h3>
+                <p>Kedatangan bangsa Portugis, Spanyol, Belanda, dan Inggris, serta perlawanan rakyat terhadap penjajahan.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Pergerakan Nasional (1900 - 1945)</h3>
+                <p>Kebangkitan kesadaran nasional, munculnya organisasi pergerakan, dan perjuangan menuju kemerdekaan.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Era Kemerdekaan (1945 - sekarang)</h3>
+                <p>Proklamasi kemerdekaan, perjuangan mempertahankan kemerdekaan, dan pembangunan bangsa Indonesia modern.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Tentang TABEL</h3>
+                <p>TABEL adalah platform edukasi yang menyajikan informasi sejarah Indonesia secara komprehensif dan terpercaya.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kategori</h3>
+                <ul>
+                    <li><a href="#">Prasejarah</a></li>
+                    <li><a href="#">Kerajaan Kuno</a></li>
+                    <li><a href="#">Kolonialisme</a></li>
+                    <li><a href="#">Revolusi</a></li>
+                    <li><a href="#">Era Modern</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Sumber Daya</h3>
+                <ul>
+                    <li><a href="#">Arsip Nasional</a></li>
+                    <li><a href="#">Museum Sejarah</a></li>
+                    <li><a href="#">Jurnal Akademik</a></li>
+                    <li><a href="#">Pustaka Digital</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <ul>
+                    <li>Email: info@tabel.id</li>
+                    <li>Telepon: (021) 1234-5678</li>
+                    <li>Alamat: Jl. Sejarah No. 45, Jakarta</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 TABEL - Sejarah Indonesia. Semua hak dilindungi undang-undang.</p>
+        </div>
+    </footer>
+</body>
+</html>
